@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Nirvi!</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Georgia',serif; background:#5a0f1a; overflow:hidden; height:100vh}
+.slide{position:absolute; inset:0; display:none; align-items:center; justify-content:center; flex-direction:column; padding:15px; background:#5a0f1a}
+.slide.active{display:flex}
+.full-img{width:95vw; max-width:420px; max-height:82vh; object-fit:contain; border-radius:15px; box-shadow:0 15px 40px rgba(0,0,0,0.5)}
+.btn{background:#f9e4c0; color:#8b1a2e; border:none; padding:12px 28px; border-radius:30px; margin-top:18px; font-weight:bold; cursor:pointer}
+.env-wrap{position:relative; width:92vw; max-width:400px; height:60vh; display:flex; align-items:center; justify-content:center}
+.env-img{position:absolute; width:100%; max-width:380px; z-index:10; border-radius:12px; cursor:pointer; box-shadow:0 15px 35px rgba(0,0,0,0.5); transition:0.7s}
+.letter-img{position:absolute; width:82%; max-width:320px; top:15%; left:50%; transform:translate(-50%,0) rotate(3deg); z-index:1; border-radius:10px; border:3px solid #fff; box-shadow:0 8px 20px rgba(0,0,0,0.3); transition:0.8s cubic-bezier(0.34,1.56,0.64,1)}
+.env-wrap.open .env-img{transform:translateY(120px) scale(0.85)}
+.env-wrap.open .letter-img{transform:translate(-50%,-35%) rotate(0deg) scale(1.1); z-index:20; top:0}
+</style>
+</head>
+<body>
+
+<div class="slide active" id="s1">
+<img src="slide1.jpg" class="full-img">
+<button class="btn" onclick="go(2)">open your letter → 💌</button>
+</div>
+
+<div class="slide" id="s2">
+<p style="color:#f9e4c0; margin-bottom:10px; font-weight:bold; letter-spacing:2px">YOU HAVE A LETTER...</p>
+<div class="env-wrap" id="env" onclick="openIt()">
+<img src="slide2.jpg" class="letter-img">
+<img src="envelope.jpeg" class="env-img">
+</div>
+<p style="color:#f9e4c0; margin-top:20px" id="hint">tap the envelope to POP it 💖</p>
+<button class="btn" id="b2" style="display:none" onclick="go(3)">read full letter →</button>
+</div>
+
+<div class="slide" id="s3"><img src="slide2.jpg" class="full-img"><button class="btn" onclick="go(4)">next →</button></div>
+<div class="slide" id="s4"><img src="slide3.jpg" class="full-img"><button class="btn" onclick="go(5)">last one → 🎂</button></div>
+<div class="slide" id="s5"><img src="slide4.jpg" class="full-img"><h2 style="color:#f9e4c0;margin-top:15px">Happy Birthday meri nirvuu!! 🎉💖</h2></div>
+
+<script>
+function go(n){document.querySelectorAll('.slide').forEach(s=>s.classList.remove('active'));document.getElementById('s'+n).classList.add('active')}
+function openIt(){document.getElementById('env').classList.add('open');document.getElementById('hint').innerText='IT POPPED!! 😭💖';document.getElementById('b2').style.display='block'}
+</script>
+</body>
+</html>
